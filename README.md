@@ -1,8 +1,8 @@
-# Mail Service
+# Email Service
 
 ## Description
 
-Using AWS Lambda Function.
+Using AWS Lambda Function and SES.
 
 ## Installation
 
@@ -10,7 +10,13 @@ Using AWS Lambda Function.
 $ npm install
 ```
 
-## Create Lambda function in AWS Console
+## Access AWS Console
+
+## Create IAM user with policies to call AWS Lambda Function and send Email with SES.
+
+## Configure SES and verify your email or domain.
+
+## Create new Lambda Function
 
 ## Set environment variable
 ```bash
@@ -21,12 +27,12 @@ $ npm install
 }
 ```
 
-## Running the app
+## Running the 
 
 - zip code and deploy into AWS development console.
 
 ## Test your code
-### Send JSON:
+### Replace the body variables and send the JSON:
 
 ```bash
 {
