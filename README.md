@@ -1,6 +1,8 @@
+# Mail Service
+
 ## Description
 
-AWS Lambda Function.
+Using AWS Lambda Function.
 
 ## Installation
 
@@ -13,7 +15,7 @@ $ npm install
 - zip code and deploy into AWS development console.
 
 ## Test your code
-# Send JSON:
+### Send JSON:
 
 ```bash
 {
