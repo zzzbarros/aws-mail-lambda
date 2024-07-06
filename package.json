@@ -1,0 +1,12 @@
+{
+  "name": "pds-mail-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "José Barros",
+  "license": "ISC",
+  "description": "Lambda function to send mails from AWS SES.",
+  "dependencies": {
+    "@aws-sdk/client-ses": "^3.609.0",
+    "handlebars": "^4.7.8"
+  }
+}
