@@ -10,6 +10,17 @@ Using AWS Lambda Function.
 $ npm install
 ```
 
+## Create Lambda function in AWS Console
+
+## Set environment variable
+```bash
+{
+  "FROM_MAIL"=""
+  "FRONTEND_URL"=""
+  "REGION"=""
+}
+```
+
 ## Running the app
 
 - zip code and deploy into AWS development console.
