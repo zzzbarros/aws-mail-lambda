@@ -6,7 +6,7 @@ export const generateTemplateData = (type, username, token) => {
       title: 'Bem-vindo!',
       message: 'Você acabou de ser cadastrado como usuário em nossa plataforma.',
       description: 'Clique no botão abaixo para definir sua senha de acesso.',
-      buttonText: 'Definir senha',
+      buttonText: 'Definir Senha',
       urlButton: process.env.FRONTEND_URL.concat('/auth/create-password/').concat(token),
       expirationToken: 24,
     },
@@ -16,7 +16,7 @@ export const generateTemplateData = (type, username, token) => {
       title: 'Recuperação de Senha!',
       message: 'Você acabou solicitar a recuperação de senha em nossa plataforma.',
       description: 'Clique no botão abaixo para definir sua senha de acesso.',
-      buttonText: 'Redefinir senha',
+      buttonText: 'Redefinir Senha',
       urlButton: process.env.FRONTEND_URL.concat('/auth/recovery-password/').concat(token),
       expirationToken: 24,
     },
@@ -26,8 +26,8 @@ export const generateTemplateData = (type, username, token) => {
       title: 'Como você se sente hoje?',
       message: 'Ajude o seu treinador a monitorar e adequar seus treinos.',
       description: 'Clique no botão abaixo para responder o questionário diário.',
-      buttonText: 'Acessar questionário',
-       urlButton: process.env.FRONTEND_URL.concat('/athlete/day-monitory').concat(token),
+      buttonText: 'Acessar Questionário',
+       urlButton: process.env.FRONTEND_URL.concat('/athlete/day-monitory/').concat(token).concat(`?name=${username}`),
       expirationToken: 24,
     }
   }
