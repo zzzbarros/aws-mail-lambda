@@ -14,10 +14,10 @@ export const generateTemplateData = (type, username, token) => {
       username,
       subject: 'Recuperação de Senha',
       title: 'Recuperação de Senha!',
-      message: 'Você acabou solicitar a recuperação de senha em nossa plataforma.',
-      description: 'Clique no botão abaixo para definir sua senha de acesso.',
+      message: 'Você acabou de solicitar a recuperação de senha em nossa plataforma.',
+      description: 'Clique no botão abaixo para definir sua nova senha de acesso.',
       buttonText: 'Redefinir Senha',
-      urlButton: process.env.FRONTEND_URL.concat('/auth/recovery-password/').concat(token),
+      urlButton: process.env.FRONTEND_URL.concat('/auth/forgot-password/').concat(token),
       expirationToken: 24,
     },
     monitory: {
