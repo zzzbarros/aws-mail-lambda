@@ -47,7 +47,7 @@
       text-align: center;
     }
 
-    a {
+    .button {
       display: inline-block;
       margin-top: 10px;
       padding: 8px 32px;
@@ -59,7 +59,7 @@
       text-align: center;
     }
 
-    a:hover {
+    .button:hover {
       background-color: #313B56;
     }
 
@@ -73,6 +73,12 @@
       color: #313B56;
       font-weight: 600;
     }
+
+    .unsubscribe {
+      margin-top: 8px;
+      color: #5a646e;
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -84,12 +90,13 @@
     <p>{{ message }}</p>
     <p>{{ description }}</p>
     <div class="center">
-      <a href="{{ urlButton }}">{{ buttonText }}</a>
+      <a class="button" href="{{ buttonURL }}">{{ buttonText }}</a>
     </div>
     <p class="linkExpiration">
       Link válido por {{ expirationToken }}h. Em caso de dúvida contate o suporte.
     </p>
     <p class="footer">Obrigado, <br />plataforma Training Track.</p>
+    <a class="unsubscribe" href="{{ unsubscribeURL }}">Cancelar inscrição</a>
   </div>
 </body>
 
