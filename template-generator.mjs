@@ -1,6 +1,6 @@
-export const generateTemplateData = (type, username, token, email) => {
+export const generateTemplateData = (type, username, token, email, schedule) => {
   const templates = {
-    create: {
+    'create-user': {
       username,
       subject: 'Definir Senha',
       title: 'Bem-vindo!',
@@ -8,7 +8,7 @@ export const generateTemplateData = (type, username, token, email) => {
       description: 'Clique no botão abaixo para definir sua senha de acesso.',
       buttonText: 'Definir Senha',
       unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`), 
-      buttonURL: process.env.FRONTEND_URL.concat('/auth/create-password/').concat(token),
+      buttonURL: process.env.FRONTEND_URL.concat('/create-password/').concat(token),
       expirationToken: 24,
     },
     recovery: {
@@ -19,7 +19,7 @@ export const generateTemplateData = (type, username, token, email) => {
       description: 'Clique no botão abaixo para definir sua nova senha de acesso.',
       buttonText: 'Redefinir Senha',
       unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`), 
-      buttonURL: process.env.FRONTEND_URL.concat('/auth/forgot-password/').concat(token),
+      buttonURL: process.env.FRONTEND_URL.concat('/forgot-password/').concat(token),
       expirationToken: 24,
     },
     monitory: {
@@ -32,6 +32,30 @@ export const generateTemplateData = (type, username, token, email) => {
       unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`),  
       buttonURL: process.env.FRONTEND_URL.concat('/athlete/day-monitory/').concat(token).concat(`?name=${username}`),
       expirationToken: 24,
+    },
+    'create-schedule': {
+      username,
+      subject: 'Novo agendamento - dia '.concat(schedule?.date ?? ''),
+      title: 'Novo agendamento.',
+      message: 'Um novo treino foi agendado para '.concat(schedule?.date ?? ''),
+      description: 'Clique no botão abaixo para confirmar ou cancelar o agendamento.',
+      buttonText: 'Confirmar',
+      buttonURL: process.env.FRONTEND_URL.concat('/schedule/').concat(token).concat('?type=confirm'),
+      secondaryButtonText: 'Cancelar',
+      secondaryButtonURL: process.env.FRONTEND_URL.concat('/schedule/').concat(token).concat('?type=cancel'),
+      unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`), 
+    },
+    'update-schedule': {
+      username,
+      subject: 'Agendamento atualizado  - novo dia '.concat(schedule?.date ?? ''),
+      title: 'Agendamento atualizado.',
+      message: 'Um treino que estava agendado foi atualizado para '.concat(schedule?.date ?? ''),
+      description: 'Clique no botão abaixo para confirmar ou cancelar o agendamento.',
+      buttonText: 'Confirmar agendamento',
+      buttonURL: process.env.FRONTEND_URL.concat('/schedule/').concat(token).concat('?type=confirm'),
+      secondaryButtonText: 'Cancelar agendamento',
+      secondaryButtonURL: process.env.FRONTEND_URL.concat('/schedule/').concat(token).concat('?type=cancel'),
+      unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`), 
     }
   }
   return templates[type]

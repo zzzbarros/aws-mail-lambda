@@ -50,6 +50,7 @@
     .button {
       display: inline-block;
       margin-top: 10px;
+      margin-bottom: 6px;
       padding: 8px 32px;
       text-decoration: none;
       background-color: #8B6DD7;
@@ -63,7 +64,7 @@
       background-color: #313B56;
     }
 
-    .linkExpiration {
+    .link-expiration {
       margin-top: 24px;
       color: #5a646e;
     }
@@ -74,7 +75,7 @@
       font-weight: 600;
     }
 
-    .unsubscribe {
+    .secondary-button {
       margin-top: 8px;
       color: #5a646e !important;
       text-decoration: underline;
@@ -92,11 +93,18 @@
     <div class="center">
       <a class="button" href="{{ buttonURL }}">{{ buttonText }}</a>
     </div>
-    <p class="linkExpiration">
-      Link válido por {{ expirationToken }}h. Em caso de dúvida contate o suporte.
+    {{#if secondaryButtonURL}}
+    <div class="center mt">
+      <a class="secondary-button" href="{{ secondaryButtonURL }}">{{ secondaryButtonText }}</a>
+    </div>
+    {{/if}}
+    <p class="link-expiration">
+      {{#if expirationToken}}
+      Link válido por {{expirationToken}}h. Em caso de dúvida contate o suporte.
+      {{/if}}
     </p>
     <p class="footer">Obrigado, <br />plataforma Training Track.</p>
-    <a class="unsubscribe" href="{{ unsubscribeURL }}">Cancelar inscrição</a>
+    <a class="secondary-button mt" href="{{ unsubscribeURL }}">Cancelar inscrição</a>
   </div>
 </body>
 

@@ -12,7 +12,7 @@ export const handler = async (event) => {
   for (const record of event.Records) {
     const { body } = record;
     const message = JSON.parse(body);
-    const templateData = generateTemplateData(message.type, message.name, message.token, message.toEmail);
+    const templateData = generateTemplateData(message.type, message.name, message.token, message.toEmail, message.schedule);
     const emailContent = template(templateData);
     const params = {
       Destination: {
