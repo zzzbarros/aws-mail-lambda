@@ -56,6 +56,14 @@ export const generateTemplateData = (type, username, token, email, schedule) => 
       secondaryButtonText: 'Cancelar agendamento',
       secondaryButtonURL: process.env.FRONTEND_URL.concat('/schedule/').concat(token).concat('?type=cancel'),
       unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`), 
+    },
+    'cancel-schedule': {
+      username,
+      subject: 'Agendamento cancelado - dia '.concat(schedule?.date ?? ''),
+      title: 'Agendamento cancelado.',
+      message: `Um treino que estava agendado para ${schedule?.date} foi cancelado.`,
+      description: 'Aproveite para descansar e em caso de dúvida consulte seu treinador.',
+      unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`), 
     }
   }
   return templates[type]

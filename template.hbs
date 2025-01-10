@@ -90,9 +90,11 @@
     <p>Olá, {{ username }}!</p>
     <p>{{ message }}</p>
     <p>{{ description }}</p>
+    {{#if buttonURL}}
     <div class="center">
       <a class="button" href="{{ buttonURL }}">{{ buttonText }}</a>
     </div>
+    {{/if}}
     {{#if secondaryButtonURL}}
     <div class="center mt">
       <a class="secondary-button" href="{{ secondaryButtonURL }}">{{ secondaryButtonText }}</a>
