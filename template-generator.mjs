@@ -40,9 +40,9 @@ export const generateTemplateData = (type, username, token, email, schedule) => 
       message: 'Um novo treino foi agendado para '.concat(schedule?.date ?? ''),
       description: 'Clique no botão abaixo para confirmar ou cancelar o agendamento.',
       buttonText: 'Confirmar',
-      buttonURL: process.env.FRONTEND_URL.concat('/schedule/').concat(token).concat('?type=confirm'),
+      buttonURL: process.env.FRONTEND_URL.concat('/athlete/schedule/').concat(token).concat(`?type=confirm&name=${username}`),
       secondaryButtonText: 'Cancelar',
-      secondaryButtonURL: process.env.FRONTEND_URL.concat('/schedule/').concat(token).concat('?type=cancel'),
+      secondaryButtonURL: process.env.FRONTEND_URL.concat('/athlete/schedule/').concat(token).concat(`?type=cancel&name=${username}`),
       unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`), 
     },
     'update-schedule': {
@@ -52,9 +52,9 @@ export const generateTemplateData = (type, username, token, email, schedule) => 
       message: 'Um treino que estava agendado foi atualizado para '.concat(schedule?.date ?? ''),
       description: 'Clique no botão abaixo para confirmar ou cancelar o agendamento.',
       buttonText: 'Confirmar agendamento',
-      buttonURL: process.env.FRONTEND_URL.concat('/schedule/').concat(token).concat('?type=confirm'),
+      buttonURL: process.env.FRONTEND_URL.concat('/athlete/schedule/').concat(token).concat(`?type=confirm&name=${username}`),
       secondaryButtonText: 'Cancelar agendamento',
-      secondaryButtonURL: process.env.FRONTEND_URL.concat('/schedule/').concat(token).concat('?type=cancel'),
+      secondaryButtonURL: process.env.FRONTEND_URL.concat('/athlete/schedule/').concat(token).concat(`?type=cancel&name=${username}`),
       unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`), 
     },
     'cancel-schedule': {
