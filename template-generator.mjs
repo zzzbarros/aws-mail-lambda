@@ -35,9 +35,9 @@ export const generateTemplateData = (type, username, token, email, schedule) => 
     },
     'create-schedule': {
       username,
-      subject: 'Novo agendamento - dia '.concat(schedule?.date ?? ''),
-      title: 'Novo agendamento.',
-      message: `Um novo treino foi agendado para ${schedule?.date} às ${schedule?.time}.`,
+      subject: 'Treino agendado - dia '.concat(schedule?.date ?? ''),
+      title: 'Treino agendado.',
+      message: `Você tem um treino agendado para ${schedule?.date} às ${schedule?.time}.`,
       description: 'Clique no botão abaixo para confirmar ou cancelar o agendamento.',
       buttonText: 'Confirmar',
       buttonURL: process.env.FRONTEND_URL.concat('/athlete/schedule/').concat(token).concat(`?type=confirm&name=${username}`),
