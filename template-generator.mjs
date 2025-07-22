@@ -1,4 +1,6 @@
-export const generateTemplateData = (type, username, token, email, schedule) => {
+export const generateTemplateData = (payload) => {
+  const { type, name: username, token, email, schedule } = payload
+
   const templates = {
     'create-user': {
       username,
@@ -37,7 +39,7 @@ export const generateTemplateData = (type, username, token, email, schedule) => 
       username,
       subject: 'Treino agendado - dia '.concat(schedule?.date ?? ''),
       title: 'Treino agendado.',
-      message: `Você tem um treino agendado para ${schedule?.date} às ${schedule?.time}.`,
+      message: `Você tem um treino agendado com ${schedule?.coach} para ${schedule?.date} das ${schedule?.time?.start} até ${schedule?.time?.end}.`,
       description: 'Clique no botão abaixo para confirmar ou cancelar o agendamento.',
       buttonText: 'Confirmar',
       buttonURL: process.env.FRONTEND_URL.concat('/athlete/schedule/').concat(token).concat(`?type=confirm&name=${username}`),
@@ -49,7 +51,7 @@ export const generateTemplateData = (type, username, token, email, schedule) => 
       username,
       subject: 'Agendamento atualizado  - novo dia '.concat(schedule?.date ?? ''),
       title: 'Agendamento atualizado.',
-      message: `Um treino que estava agendado foi atualizado para ${schedule?.date} às ${schedule?.time}.`,
+      message: `Um treino que estava agendado foi atualizado para ${schedule?.date} das ${schedule?.time.start} até ${schedule?.time?.end}.`,
       description: 'Clique no botão abaixo para confirmar ou cancelar o agendamento.',
       buttonText: 'Confirmar agendamento',
       buttonURL: process.env.FRONTEND_URL.concat('/athlete/schedule/').concat(token).concat(`?type=confirm&name=${username}`),
@@ -61,7 +63,7 @@ export const generateTemplateData = (type, username, token, email, schedule) => 
       username,
       subject: 'Agendamento cancelado - dia '.concat(schedule?.date ?? ''),
       title: 'Agendamento cancelado.',
-      message: `O treino que estava agendado para ${schedule?.date} às ${schedule?.time} foi cancelado.`,
+      message: `O treino que estava agendado para ${schedule?.date} das ${schedule?.time?.start} até ${schedule?.time?.end} foi cancelado.`,
       description: 'Aproveite para descansar e em caso de dúvida consulte seu treinador.',
       unsubscribeURL: process.env.FRONTEND_URL.concat('/unsubscribe/').concat(token).concat(`?email=${email}`), 
     }
