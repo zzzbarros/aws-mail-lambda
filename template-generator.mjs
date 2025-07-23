@@ -37,7 +37,7 @@ export const generateTemplateData = (payload) => {
     },
     'create-schedule': {
       username,
-      subject: 'Treino agendado - dia '.concat(schedule?.date ?? ''),
+      subject: 'Treino agendado - '.concat(schedule?.date ?? ''),
       title: 'Treino agendado.',
       message: `Você tem um treino agendado com ${schedule?.coach} para ${schedule?.date} das ${schedule?.time?.start} até ${schedule?.time?.end}.`,
       description: 'Clique no botão abaixo para confirmar ou cancelar o agendamento.',
